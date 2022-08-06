@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>Add User</h1>
+<div mat-dialog-content>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>First name</mat-label>
+          <input [(ngModel)] = "user.firstName" matInput placeholder="Max" />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input [(ngModel)] = "user.lastName" matInput  placeholder="Mustermann"/>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <mat-form-field class="marginRight16 birthdateField" appearance="fill">
+    <mat-label>Birth date</mat-label>
+    <input [(ngModel)] = "birthDate" matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width addressField" appearance="fill">
+    <mat-label>Address and Nr.</mat-label>
+    <input [(ngModel)] = "user.street" matInput placeholder="Adenauer Str. 24" />
+  </mat-form-field>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>City</mat-label>
+          <input [(ngModel)] = "user.city" matInput placeholder="Ex. San Francisco" />
+        </mat-form-field>
+      </td>
+      <td>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Postal Code</mat-label>
+          <input [(ngModel)] = "user.postalCode"
+            matInput
+            #postalCode
+            maxlength="5"
+            placeholder="Ex. 94105"
+            value=""
+          />
+          <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-button>Cancel</button>
+  <button mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+</div>
