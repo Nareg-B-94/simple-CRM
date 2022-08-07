@@ -1,5 +1,29 @@
-<p>user works!</p>
+<mat-card class="userCard">
+  <table mat-table class="userTable mat-elevation-z8">
+    <tr>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>Street</th>
+      <th>Postal Code</th>
+      <th>City</th>
+    </tr>
 
-<button (click)="openDialog()" class="addButton" mat-fab color="primary" matTooltip="Add User">
+    <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.customIdName]">
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.street}}</td>
+      <td>{{user.postalCode}}</td>
+      <td>{{user.city}}</td>
+    </tr>
+  </table>
+</mat-card>
+
+<button
+  (click)="openDialog()"
+  class="addButton"
+  mat-fab
+  color="primary"
+  matTooltip="Add User"
+>
   <mat-icon>add</mat-icon>
 </button>

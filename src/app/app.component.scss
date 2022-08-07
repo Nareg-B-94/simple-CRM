@@ -11,6 +11,7 @@
 }
 
 .logoDiv{
+    justify-content: center;
     display: flex;
     align-items: center;
     min-height: 58px;
@@ -49,6 +50,7 @@ mat-toolbar, mat-toolbar-row {
 
 .routerContainer{
     padding-left: 56px;
+    padding-right: 56px;
     padding-top: 15px;
 }
 

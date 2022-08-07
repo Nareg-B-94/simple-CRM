@@ -1,3 +1,4 @@
+<mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
 <h1 mat-dialog-title>Add User</h1>
 <div mat-dialog-content>
   <table class="example-full-width" cellspacing="0">
@@ -5,43 +6,74 @@
       <td>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>First name</mat-label>
-          <input [(ngModel)] = "user.firstName" matInput placeholder="Max" />
+          <input
+            [disabled]="loading"
+            [(ngModel)]="user.firstName"
+            matInput
+            placeholder="Max"
+          />
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Last Name</mat-label>
-          <input [(ngModel)] = "user.lastName" matInput  placeholder="Mustermann"/>
+          <input
+            [disabled]="loading"
+            [(ngModel)]="user.lastName"
+            matInput
+            placeholder="Mustermann"
+          />
         </mat-form-field>
       </td>
     </tr>
   </table>
   <mat-form-field class="marginRight16 birthdateField" appearance="fill">
     <mat-label>Birth date</mat-label>
-    <input [(ngModel)] = "birthDate" matInput [matDatepicker]="picker" />
+    <input [(ngModel)]="birthDate" matInput [matDatepicker]="picker" />
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>E-Mail Address</mat-label>
+    <input
+      [disabled]="loading"
+      [(ngModel)]="user.email"
+      matInput
+      placeholder="exp@mail.com"
+    />
+  </mat-form-field>
 
   <mat-form-field class="example-full-width addressField" appearance="fill">
     <mat-label>Address and Nr.</mat-label>
-    <input [(ngModel)] = "user.street" matInput placeholder="Adenauer Str. 24" />
+    <input
+      [disabled]="loading"
+      [(ngModel)]="user.street"
+      matInput
+      placeholder="Adenauer Str. 24"
+    />
   </mat-form-field>
   <table class="example-full-width" cellspacing="0">
     <tr>
       <td>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>City</mat-label>
-          <input [(ngModel)] = "user.city" matInput placeholder="Ex. San Francisco" />
+          <input
+            [disabled]="loading"
+            [(ngModel)]="user.city"
+            matInput
+            placeholder="Ex. San Francisco"
+          />
         </mat-form-field>
       </td>
-      <td>
-      </td>
+      <td></td>
       <td>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Postal Code</mat-label>
-          <input [(ngModel)] = "user.postalCode"
+          <input
+            [disabled]="loading"
+            [(ngModel)]="user.postalCode"
             matInput
             #postalCode
             maxlength="5"
@@ -55,6 +87,8 @@
   </table>
 </div>
 <div mat-dialog-actions>
-  <button mat-button>Cancel</button>
-  <button mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+  <button [disabled]="loading" mat-button (click)="close()">Cancel</button>
+  <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>
+    Save
+  </button>
 </div>
