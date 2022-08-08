@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogAddUserComponent implements OnInit {
   user = new User();
-  birthDate!: Date;
+  birthDate: Date;
   coll: any;
   loading = false;
 

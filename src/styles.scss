@@ -2,3 +2,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.birthdateField{
+    width: 200px;
+}
+
+mat-progress-bar {
+    border-radius: 100%;
+    height: 10px;
+}

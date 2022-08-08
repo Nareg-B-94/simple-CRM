@@ -1,0 +1,49 @@
+<mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+<h2>Edit Address</h2>
+  <mat-form-field class="example-full-width addressField" appearance="fill">
+    <mat-label>Street and House Nr.</mat-label>
+    <input
+      [disabled]="loading"
+      [(ngModel)]="user.street"
+      matInput
+      placeholder="Adenauer Str. 24"
+    />
+  </mat-form-field>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>City</mat-label>
+          <input
+            [disabled]="loading"
+            [(ngModel)]="user.city"
+            matInput
+            placeholder="Ex. San Francisco"
+          />
+        </mat-form-field>
+      </td>
+      <td></td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Postal Code</mat-label>
+          <input
+            [disabled]="loading"
+            [(ngModel)]="user.postalCode"
+            matInput
+            #postalCode
+            maxlength="5"
+            placeholder="Ex. 94105"
+            value=""
+          />
+          <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+<div mat-dialog-actions>
+  <button [disabled]="loading" mat-button (click)="close()">Cancel</button>
+  <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>
+    Save
+  </button>
+</div>
